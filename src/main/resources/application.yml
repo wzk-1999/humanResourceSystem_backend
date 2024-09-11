@@ -1,0 +1,67 @@
+server:
+  servlet:
+    context-path: /api/v1
+  port: 5000
+
+spring:
+#  timezone: Asia/Shanghai
+  datasource:
+#    url: jdbc:postgresql://127.0.0.1:5432/${DATABASE_NAME}
+#    username: ${DATABASE_USERNAME}
+#    password: ${DATABASE_PASSWORD}
+    url: jdbc:postgresql://127.0.0.1:5432/BO-hr-system
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  config:
+    name: application,env
+
+
+  data:
+    redis:
+      cluster:
+#        nodes: // !!! if I write yml like this, it will parse as list, not array
+#          - 127.0.0.1:6381
+#          - 127.0.0.1:6382
+#          - 127.0.0.1:6384
+#          - 127.0.0.1:6385
+#          - 127.0.0.1:6386
+#          - 127.0.0.1:6387
+        nodes: 127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384,127.0.0.1:6386,127.0.0.1:6385
+        refresh:
+          adaptive: true
+        topology:
+          use-redis-addresses: true
+#         nodes:
+#           - 127.0.0.1:6380  # Use the IP and port of the Nginx proxy
+      timeout: 2000
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      sample:
+        concurrency: 5
+        max-concurrency: 10
+    queues:
+      clockin: clockInQueue
+
+
+jwt:
+  secret-key: your-secret-key-value
+
+#logging:
+#  level:
+#    org.springframework: DEBUG
+#    org.springframework.beans.factory: DEBUG
+
+
