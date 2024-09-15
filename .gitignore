@@ -34,3 +34,5 @@ build/
 
 ### configuration information ###
 src/main/resources/.env
+
+logs/
