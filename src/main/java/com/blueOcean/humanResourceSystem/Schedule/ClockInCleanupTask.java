@@ -23,7 +23,7 @@ public class ClockInCleanupTask {
     private static final Logger logger = LoggerFactory.getLogger(ClockInCleanupTask.class);
 
 
-    @Scheduled(cron = "0 28 1 * * ?")  // Every day at 11:50 PM
+    @Scheduled(cron = "0 34 7 * * ?")  // Every day at 11:50 PM
     public void ClockInCleanup() {
 
                 // Perform deletion logic
@@ -44,9 +44,9 @@ public class ClockInCleanupTask {
             String sql = "DELETE FROM clock_in_record WHERE clock_in_date < ?";
             logger.info("Executing SQL: {}", sql);
 
-            jdbcTemplate.update(sql, thresholdSqlDate);
+            int count=jdbcTemplate.update(sql, thresholdSqlDate);
 
-            logger.info("Old records deleted successfully.");
+            logger.info("Old {} records deleted successfully.", count);
         } catch (Exception e) {
             logger.error("Error occurred while deleting old records: ", e);
         }

@@ -82,7 +82,7 @@ public class ClockInConsumer {
             }
 
             // Set isMorning
-            record.setIsMornig(isMorning);
+            record.setIsMorning(isMorning);
         }
 
         // Set other fields from ClockInRequest value

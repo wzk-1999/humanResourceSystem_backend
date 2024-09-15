@@ -1,5 +1,6 @@
 package com.blueOcean.humanResourceSystem.Controller;
 
+import com.blueOcean.humanResourceSystem.Annotation.LogMethod;
 import com.blueOcean.humanResourceSystem.Model.userCredentials;
 import com.blueOcean.humanResourceSystem.Service.UserService;
 import com.blueOcean.humanResourceSystem.Utils.JwtUtil;
@@ -32,6 +33,7 @@ public class LoginController {
     @Autowired
     private JwtUtil jwtUtil; // Inject JwtUtil
 
+    @LogMethod("登录")
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody userCredentials credentials) {
         if (userService.login(credentials.getUsername(), credentials.getPassword())) {

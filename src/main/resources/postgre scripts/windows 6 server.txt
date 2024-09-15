@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  redis-node-1:
+    image: redis:latest
+    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--appendonly", "yes"]
+    ports:
+      - "6385:6379"
+    networks:
+      redis-cluster:
+        ipv4_address: 172.18.0.2
+    volumes:
+      - redis-node-1-data:/data
+
+  redis-node-2:
+    image: redis:latest
+    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--appendonly", "yes"]
+    ports:
+      - "6386:6379"
+    networks:
+      redis-cluster:
+        ipv4_address: 172.18.0.3
+    volumes:
+      - redis-node-2-data:/data
+
+  redis-node-3:
+    image: redis:latest
+    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--appendonly", "yes"]
+    ports:
+      - "6381:6379"
+    networks:
+      redis-cluster:
+        ipv4_address: 172.18.0.4
+    volumes:
+      - redis-node-3-data:/data
+
+  redis-node-4:
+    image: redis:latest
+    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--appendonly", "yes"]
+    ports:
+      - "6382:6379"
+    networks:
+      redis-cluster:
+        ipv4_address: 172.18.0.5
+    volumes:
+      - redis-node-4-data:/data
+
+  redis-node-5:
+    image: redis:latest
+    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--appendonly", "yes"]
+    ports:
+      - "6387:6379"
+    networks:
+      redis-cluster:
+        ipv4_address: 172.18.0.6
+    volumes:
+      - redis-node-5-data:/data
+
+  redis-node-6:
+    image: redis:latest
+    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--appendonly", "yes"]
+    ports:
+      - "6384:6379"
+    networks:
+      redis-cluster:
+        ipv4_address: 172.18.0.7
+    volumes:
+      - redis-node-6-data:/data
+
+networks:
+  redis-cluster:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+
+volumes:
+  redis-node-1-data:
+  redis-node-2-data:
+  redis-node-3-data:
+  redis-node-4-data:
+  redis-node-5-data:
+  redis-node-6-data:
+  
+  CD C:\Program Files\Redis
+  
+  redis-server redis.windows-6381.conf
+  redis-server redis.windows-6382.conf
+  redis-server redis.windows-6383.conf
+  redis-server redis.windows-6384.conf
+  redis-server redis.windows-6385.conf
+  redis-server redis.windows-6386.conf
+  
+  redis-cli --cluster create 127.0.0.1:6381 127.0.0.1:6382 127.0.0.1:6383 127.0.0.1:6384 127.0.0.1:6385 127.0.0.1:6386 --cluster-replicas 1
+
+TB_003:11/6/2024:1

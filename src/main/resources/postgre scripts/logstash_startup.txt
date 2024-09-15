@@ -1,0 +1,25 @@
+input {
+  file {
+    path => "C:\project\BlueOceanSystem\humanResourceSystem_backend\logs\*.log"    # Path to the log file
+    start_position => "beginning"           # Start reading from the beginning of the file
+    sincedb_path => "/dev/null"             # Disable sincedb to read the file from the beginning each time Logstash starts (useful for testing)
+    codec => plain { charset => "UTF-8" }   # Set the codec to read plain text
+	exclude => "*.gz"           # Exclude .gz files
+  }
+}
+
+filter {
+  # Add any filters here if needed (e.g., grok, mutate, etc.)
+}
+
+output {
+  elasticsearch {
+    hosts => ["http://localhost:9200"]      # Elasticsearch instance URL
+    index => "your-log-index"               # Index name in Elasticsearch
+    document_type => "_doc"                 # Document type (default to "_doc" for recent Elasticsearch versions)
+  }
+  stdout { codec => rubydebug }             # Optional: Output to console for debugging
+}
+
+cd C:\Program Files\logstash-8.7.0\bin
+logstash -f "C:\Program Files\logstash-8.7.0\config\logstash.conf"

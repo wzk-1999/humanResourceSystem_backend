@@ -1,0 +1,51 @@
+2024-09-14 00:24:15 INFO  HumanResourceSystemApplication: - Starting HumanResourceSystemApplication using Java 17.0.11 with PID 12532 (C:\project\BlueOceanSystem\humanResourceSystem_backend\target\classes started by 10648 in C:\project\BlueOceanSystem\humanResourceSystem_backend)
+2024-09-14 00:24:15 INFO  HumanResourceSystemApplication: - No active profile set, falling back to 1 default profile: "default"
+2024-09-14 00:24:21 INFO  RepositoryConfigurationDelegate: - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-14 00:24:21 INFO  RepositoryConfigurationDelegate: - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-14 00:24:22 INFO  RepositoryConfigurationDelegate: - Finished Spring Data repository scanning in 676 ms. Found 4 JPA repository interfaces.
+2024-09-14 00:24:22 INFO  RepositoryConfigurationDelegate: - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-14 00:24:22 INFO  RepositoryConfigurationDelegate: - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-09-14 00:24:22 INFO  RepositoryConfigurationExtensionSupport: - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.blueOcean.humanResourceSystem.Repository.BasicLawSalaryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-14 00:24:22 INFO  RepositoryConfigurationExtensionSupport: - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.blueOcean.humanResourceSystem.Repository.ClockInRecordRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-14 00:24:22 INFO  RepositoryConfigurationExtensionSupport: - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.blueOcean.humanResourceSystem.Repository.CredentialsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-14 00:24:22 INFO  RepositoryConfigurationExtensionSupport: - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.blueOcean.humanResourceSystem.Repository.StaffRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-14 00:24:22 INFO  RepositoryConfigurationDelegate: - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2024-09-14 00:24:24 INFO  TomcatWebServer: - Tomcat initialized with port 5000 (http)
+2024-09-14 00:24:24 INFO  Http11NioProtocol: - Initializing ProtocolHandler ["http-nio-5000"]
+2024-09-14 00:24:24 INFO  StandardService: - Starting service [Tomcat]
+2024-09-14 00:24:24 INFO  StandardEngine: - Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-14 00:24:25 INFO  [/api/v1]: - Initializing Spring embedded WebApplicationContext
+2024-09-14 00:24:25 INFO  ServletWebServerApplicationContext: - Root WebApplicationContext: initialization completed in 9242 ms
+2024-09-14 00:24:25 INFO  LogHelper: - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-14 00:24:25 INFO  Version: - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-14 00:24:25 INFO  RegionFactoryInitiator: - HHH000026: Second-level cache disabled
+2024-09-14 00:24:26 INFO  SpringPersistenceUnitInfo: - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-14 00:24:26 INFO  HikariDataSource: - HikariPool-1 - Starting...
+2024-09-14 00:24:27 INFO  HikariPool: - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@516b84d1
+2024-09-14 00:24:27 INFO  HikariDataSource: - HikariPool-1 - Start completed.
+2024-09-14 00:24:27 WARN  deprecation: - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-14 00:24:31 INFO  JtaPlatformInitiator: - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-14 00:24:31 INFO  LocalContainerEntityManagerFactoryBean: - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-14 00:24:31 INFO  RedisConfig: - clusterNodes Redis Cluster Nodes number is: 6
+2024-09-14 00:24:33 INFO  QueryEnhancerFactory: - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-09-14 00:24:36 WARN  JpaBaseConfiguration$JpaWebConfiguration: - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-14 00:24:36 INFO  WelcomePageHandlerMapping: - Adding welcome page: class path resource [static/index.html]
+2024-09-14 00:24:37 INFO  Http11NioProtocol: - Starting ProtocolHandler ["http-nio-5000"]
+2024-09-14 00:24:37 INFO  TomcatWebServer: - Tomcat started on port 5000 (http) with context path '/api/v1'
+2024-09-14 00:24:37 INFO  CachingConnectionFactory: - Attempting to connect to: [localhost:5672]
+2024-09-14 00:24:38 INFO  CachingConnectionFactory: - Created new connection: rabbitConnectionFactory#39506f12:0/SimpleConnection@bbccb5f [delegate=amqp://guest@127.0.0.1:5672/, localPort=62063]
+2024-09-14 00:24:38 INFO  HumanResourceSystemApplication: - Started HumanResourceSystemApplication in 24.79 seconds (process running for 27.619)
+2024-09-14 00:29:15 INFO  [/api/v1]: - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-14 00:29:15 INFO  DispatcherServlet: - Initializing Servlet 'dispatcherServlet'
+2024-09-14 00:29:15 INFO  DispatcherServlet: - Completed initialization in 2 ms
+2024-09-14 00:29:15 INFO  LoggingAspect: - 打卡,START - Class: ClockInController, Method: clockIn,  IP: 0:0:0:0:0:0:0:1, Thread: http-nio-5000-exec-1
+2024-09-14 00:29:15 INFO  LoggingAspect: - Executing method: clockIn with arguments: [ClockInRequest{username='TB_003', clockInTime='9/10/2024, 09:59:00', location=Location(latitude=40.061419, longitude=116.372182), locationName='天津市海淀区西三旗街道建材城东路建材城东一里', isMorning=1, deviceInfo='Chrome, Windows'}]
+2024-09-14 00:29:17 INFO  LoggingAspect: - END - Class: ClockInController, Method: clockIn, Return Value: <200 OK OK,Clock-in successful,[]>
+2024-09-14 00:29:17 INFO  LoggingAspect: - Execution time for Class: ClockInController, Method: clockIn - Start Time: 2024-09-14T00:29:15.758333500, End Time: 2024-09-14T00:29:17.490336900, Execution Time: 1732 ms
+2024-09-14 00:55:00 INFO  SimpleMessageListenerContainer: - Waiting for workers to finish.
+2024-09-14 00:55:00 INFO  SimpleMessageListenerContainer: - Waiting for workers to finish.
+2024-09-14 00:55:01 INFO  SimpleMessageListenerContainer: - Successfully waited for workers to finish.
+2024-09-14 00:55:01 INFO  SimpleMessageListenerContainer: - Successfully waited for workers to finish.
+2024-09-14 00:55:02 INFO  LocalContainerEntityManagerFactoryBean: - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-14 00:55:02 INFO  HikariDataSource: - HikariPool-1 - Shutdown initiated...
+2024-09-14 00:55:02 INFO  HikariDataSource: - HikariPool-1 - Shutdown completed.

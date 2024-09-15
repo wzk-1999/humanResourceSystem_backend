@@ -33,7 +33,7 @@ public class ClockInDataSyncTask {
 
     private static final int BATCH_SIZE = 100;  // Define a suitable batch size
 
-    @Scheduled(cron = "0 29 1 * * ?")  // Every day at 2 AM
+    @Scheduled(cron = "0 35 7 * * ?")  // Every day at 2 AM
     public void syncClockInData() {
         logger.info("Scheduled task started at: {}", LocalDateTime.now());
 

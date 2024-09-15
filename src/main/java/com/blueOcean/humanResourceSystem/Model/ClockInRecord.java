@@ -1,9 +1,6 @@
 package com.blueOcean.humanResourceSystem.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -11,14 +8,15 @@ import java.util.Date;
 
 @Entity
 @Data
+@IdClass(ClockInRecordId.class)  // Specify the composite key class
+
 public class ClockInRecord {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private String username;
+    @Id
     private Date clockInDate;
-    private Boolean isMornig;
+    @Id
+    private Boolean isMorning;
 
     private LocalDateTime clockInTime;
     private String latitude;

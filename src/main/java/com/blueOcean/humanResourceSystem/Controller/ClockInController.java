@@ -1,5 +1,6 @@
 package com.blueOcean.humanResourceSystem.Controller;
 
+import com.blueOcean.humanResourceSystem.Annotation.LogMethod;
 import com.blueOcean.humanResourceSystem.Model.ClockInRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -21,6 +22,7 @@ public class ClockInController {
 
     private static final long TTL_SECONDS = 3 * 24 * 60 * 60; // TTL of 3 days in seconds
 
+    @LogMethod("打卡")
     @PostMapping("/normalClockIn")
     public ResponseEntity<String> clockIn(@RequestBody ClockInRequest request) {
 //        System.out.println("normalClockIn go");
@@ -57,6 +59,7 @@ public class ClockInController {
         return ResponseEntity.ok("Clock-in successful");
     }
 
+    @LogMethod("去redis查当天打卡记录")
     @GetMapping("/hash")
     public ResponseEntity<Map<Object, Object>> getHashByKey(@RequestParam("key") String key) {
 //        System.out.println(key);
