@@ -22,4 +22,6 @@ public interface BasicLawSalaryRepository extends JpaRepository<BasicLawSalary, 
 
     @Query("SELECT COUNT(b) FROM BasicLawSalary b WHERE b.TB_Staff_id = :TB_Staff_id")
     long countByTB_Staff_id(@Param("TB_Staff_id") String TB_Staff_id);
+
+
 }

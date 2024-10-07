@@ -1,6 +1,6 @@
 package com.blueOcean.humanResourceSystem.Service;
 
-import com.blueOcean.humanResourceSystem.Model.userCredentials;
+import com.blueOcean.humanResourceSystem.Model.UserCredentials;
 import com.blueOcean.humanResourceSystem.Repository.CredentialsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,10 +15,10 @@ public class UserService {
 
     public boolean login(String username, String password) {
         // 使用用户名查找用户
-        Optional<userCredentials> userOptional = credentialsRepository.findUserByusername(username);
+        Optional<UserCredentials> userOptional = credentialsRepository.findUserCredentialsByUsername(username);
 
         if (userOptional.isPresent()) {
-        userCredentials user = userOptional.get();
+            UserCredentials user = userOptional.get();
 
         // 验证密码
         if (password.equals(user.getPassword())) {
@@ -33,7 +33,7 @@ public class UserService {
 
 
 
-private String[] splitRole(userCredentials users) {
+public String[] splitRole(UserCredentials users) {
         if (users.getRole() == null) {
             return new String[]{"Staff"};
         }

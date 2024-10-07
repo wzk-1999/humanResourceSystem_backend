@@ -2,8 +2,10 @@ package com.blueOcean.humanResourceSystem.Controller;
 
 import com.blueOcean.humanResourceSystem.Annotation.LogMethod;
 import com.blueOcean.humanResourceSystem.Model.ClockInRequest;
+import com.blueOcean.humanResourceSystem.Service.FaceRecognitionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,10 +24,25 @@ public class ClockInController {
 
     private static final long TTL_SECONDS = 3 * 24 * 60 * 60; // TTL of 3 days in seconds
 
+    @Autowired
+    private final FaceRecognitionService faceRecognitionService;
+
+    public ClockInController(FaceRecognitionService faceRecognitionService){
+        this.faceRecognitionService=faceRecognitionService;
+    }
+
     @LogMethod("打卡")
     @PostMapping("/normalClockIn")
     public ResponseEntity<String> clockIn(@RequestBody ClockInRequest request) {
-//        System.out.println("normalClockIn go");
+        // Extract the base64-encoded photo from the request (assuming it's part of the request body)
+        String base64Photo = request.getPhoto(); // Assuming the ClockInRequest contains the photo data
+
+        // Compare face similarity
+        boolean isFaceMatch = faceRecognitionService.compareSimilarity(base64Photo, 0.93F);
+
+        if (!isFaceMatch) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Face comparison failed");
+        }
 
         String datePart =  request.getClockInTime().split(",")[0].trim(); // Extract part before the comma
 

@@ -71,4 +71,12 @@ logging:
   file:
     name: logs/app.log
 
+face:
+  appId: ${FACE_APP_ID}
+  sdkKey: ${FACE_SDK_KEY}
+  libPath: C:\\ArcSoft_ArcFace_Java_Windows_x64_V3.0\\libs\\WIN64
+
+aws:
+  region: ca-central-1
+
 

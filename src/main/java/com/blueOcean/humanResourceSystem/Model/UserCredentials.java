@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "user_Credentials")
-public class userCredentials {
+public class UserCredentials {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -72,7 +72,7 @@ public class userCredentials {
         this.is_initial_password = is_initial_password;
     }
 
-    public userCredentials(Integer id, String username, String password, String initial_password, Boolean is_initial_password, String tb_staff_id, String role) {
+    public UserCredentials(Integer id, String username, String password, String initial_password, Boolean is_initial_password, String tb_staff_id, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -82,6 +82,6 @@ public class userCredentials {
         this.role = role;
     }
 
-    public userCredentials() {
+    public UserCredentials() {
     }
 }

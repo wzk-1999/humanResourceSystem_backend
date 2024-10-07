@@ -10,6 +10,8 @@ public class ClockInRequest {
     private String locationName;
     private Byte isMorning;
     private String deviceInfo;
+    private String photo; // Add this field to store the base64 image
+
 
     @Override
     public String toString() {
@@ -20,6 +22,7 @@ public class ClockInRequest {
                 ", locationName='" + locationName + '\'' +
                 ", isMorning=" + isMorning +
                 ", deviceInfo='" + deviceInfo + '\'' +
+                ", photo='" + (photo != null ? "[image data]" : "null") + '\'' + // Mask photo data
                 '}';
     }
 }
